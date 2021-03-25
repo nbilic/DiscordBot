@@ -142,11 +142,12 @@ async def on_member_update(before,after):
 @client.event
 async def on_reaction_add(reaction,user):
     message = reaction.message
-    if reaction.emoji == "🇭🇷":
+    if reaction.emoji == ":pencil:":
      
         translator = Translator()
         word = translator.translate(reaction.message.content,dest='en')
-        await reaction.message.channel.send(word.text)
+        newSentence = f">{reaction.message.content}\n{word.text}"
+        await reaction.message.channel.send(newSentence)
 @client.command()
 async def uptime(ctx):
     Current_Time = datetime.datetime.now()
