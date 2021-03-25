@@ -104,7 +104,7 @@ async def on_message(message):
 
 @client.event
 async def on_member_update(before,after):
-    print(before.nick)
+    print('triggered')
     server = client.get_guild(212958936972656640) 
     if before.guild == server:
         #print(after.nick)
