@@ -15,7 +15,8 @@ from googletrans import Translator
 
 client = commands.Bot(command_prefix = "&")
 client.remove_command('help')
-
+intents = discord.Intents().all()
+client = discord.Client(intents=intents)
 
 def createEmbed(CustomTitle,Footer,User,Thumbnail,NumOfFields,Author,Field,Inline):
     embed = discord.Embed(
