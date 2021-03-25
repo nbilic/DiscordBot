@@ -142,7 +142,7 @@ async def on_member_update(before,after):
 @client.event
 async def on_reaction_add(reaction,user):
     message = reaction.message
-    if reaction.emoji == ":pencil:":
+    if reaction.emoji == "📝":
      
         translator = Translator()
         word = translator.translate(reaction.message.content,dest='en')
