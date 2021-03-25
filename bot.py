@@ -13,10 +13,11 @@ from datetime import date
 from datetime import datetime as dt,timedelta
 from googletrans import Translator
 
-client = commands.Bot(command_prefix = "&")
+intents = discord.Intents.default()
+intents.members = True
+intents.presences = True
+client = commands.Bot(command_prefix = "&",intents = intents)
 client.remove_command('help')
-intents = discord.Intents().all()
-client = discord.Client(intents=intents)
 
 def createEmbed(CustomTitle,Footer,User,Thumbnail,NumOfFields,Author,Field,Inline):
     embed = discord.Embed(
