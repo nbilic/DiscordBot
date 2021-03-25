@@ -146,7 +146,7 @@ async def on_reaction_add(reaction,user):
      
         translator = Translator()
         word = translator.translate(reaction.message.content,dest='en')
-        newSentence = f">{reaction.message.content}\n{word.text}"
+        newSentence = f"> ***original:*** {reaction.message.content}\n***translation:***{word.text}"
         await reaction.message.channel.send(newSentence)
 @client.command()
 async def uptime(ctx):
