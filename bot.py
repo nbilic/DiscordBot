@@ -181,7 +181,30 @@ async def help(ctx):
 @client.command()
 async def killingfloor2(ctx):
     await channel.send("Still in a few days")
+@client.command()
+async def temp(ctx):
+    params = {
+    'access_key': '6e37604c0ca0bf0aede1174f16bd65ae',
+    'query': 'Split'
+    }   
+    api_result = requests.get('http://api.weatherstack.com/current', params)
+    output = api_result.json()
+    icon = output['current']['weather_icons'][0]
+    desc = output['current']['weather_descriptions']
+    temp = output['current']['temperature']
+    time = output['current']['observation_time']
+    feelsLike = output['current']['feelslike']
+    humidity = output['current']['humidity']
 
+    embed = discord.Embed(
+        title = '🌞 Split',
+        colour = discord.Colour.blue(),
+        description= f"🌡️ Temperature: {temp}°C\n🌡️ Feels like: {feelsLike}°C\n🥵 Humidity: {humidity}% \n\n\nCondition: {desc[0]}"
+    )
+
+    embed.set_thumbnail(url= icon) 
+    embed.set_footer(text=f"Observed at {time}")
+    await ctx.channel.send(embed=embed)
 @client.command()
 async def countdown(ctx,message):
     tristo = 178210330399211520
