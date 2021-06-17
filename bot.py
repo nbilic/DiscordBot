@@ -197,10 +197,11 @@ async def temp(ctx,*args):
     temp = output['current']['temperature']
     time = output['current']['observation_time']
     feelsLike = output['current']['feelslike']
+    city = output['request']['query']
     humidity = output['current']['humidity']
 
     embed = discord.Embed(
-        title = f'🌞 {query}',
+        title = f'🌞 {city}',
         colour = discord.Colour.blue(),
         description= f"🌡️ Temperature: {temp}°C\n🌡️ Feels like: {feelsLike}°C\n🥵 Humidity: {humidity}% \n\n\nCondition: {desc[0]}"
     )
