@@ -183,10 +183,12 @@ async def help(ctx):
 async def killingfloor2(ctx):
     await channel.send("Still in a few days")
 @client.command()
-async def temp(ctx):
+async def temp(ctx,*args):  
+    string = ' '.join(args)
+    query = string if len(string) > 0 else "Split"
     params = {
     'access_key': '6e37604c0ca0bf0aede1174f16bd65ae',
-    'query': 'Split'
+    'query': f'{query}'
     }   
     api_result = requests.get('http://api.weatherstack.com/current', params)
     output = api_result.json()
@@ -198,7 +200,7 @@ async def temp(ctx):
     humidity = output['current']['humidity']
 
     embed = discord.Embed(
-        title = '🌞 Split',
+        title = f'🌞 {query}',
         colour = discord.Colour.blue(),
         description= f"🌡️ Temperature: {temp}°C\n🌡️ Feels like: {feelsLike}°C\n🥵 Humidity: {humidity}% \n\n\nCondition: {desc[0]}"
     )
