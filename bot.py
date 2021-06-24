@@ -103,7 +103,7 @@ async def on_message(message):
         print('{} - {}'.format(message.author,str(message.content)))
     if 'ocelto' in message.content and ':ocelto:' not in message.content:
         await channel.send("<:ocelto:501867638872342568>")
-        
+
     content = message.content
     content = content.replace(" ","")
     count = 0
@@ -111,7 +111,7 @@ async def on_message(message):
         if(letter.isupper()):
             count+=1
     #print(content,count,len(content),count/ len(content) * 100)
-    if(count/ len(content) * 100 > 80 and len(content) > 10):
+    if(count > 0 and count/ len(content) * 100 > 80 and len(content) > 10):
         await channel.send(f"Stop spamming <@!{message.author.id}>")
     await client.process_commands(message)
 
