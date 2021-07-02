@@ -111,7 +111,7 @@ async def on_message(message):
         if(letter.isupper()):
             count+=1
     #print(content,count,len(content),count/ len(content) * 100)
-    if(count > 0 and count/ len(content) * 100 > 80 and len(content) > 10):
+    if(count > 0 and count/ len(content) * 100 > 80 and len(content) > 30):
         await channel.send(f"Stop spamming <@!{message.author.id}>")
     await client.process_commands(message)
 
