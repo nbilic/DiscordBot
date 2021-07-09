@@ -19,6 +19,7 @@ intents.members = True
 intents.presences = True
 client = commands.Bot(command_prefix = "&",intents = intents)
 client.remove_command('help')
+killingFloorRoll = random.randint(0,365)
 
 def createEmbed(CustomTitle,Footer,User,Thumbnail,NumOfFields,Author,Field,Inline):
     embed = discord.Embed(
@@ -191,7 +192,32 @@ async def help(ctx):
 
 @client.command()
 async def killingfloor2(ctx):
-    await channel.send("Still in a few days")
+    domePick = 250
+    winQuotes = [
+        "IT'S KILLING FLOOR TIME!!!!",
+        "You did your best, it was not enough",
+        "Another day, another failure",
+        "Nope",
+        "Better luck next time",
+        "Soon COPIUM",
+        "8 ball says Ask Again Later",
+        "Not today",
+        "In football it's called nuttmeg but in tennis it is hot dog, also no kf2 today"
+    ]
+    print(killingFloorRoll,domePick)
+    if(killingFloorRoll == domePick):
+        await ctx.channel.send("IT'S KILLING FLOOR TIME!!!!")
+    else:
+        index = random.randint(0,len(winQuotes)-1)
+        if(index == 0):
+            msg = await ctx.channel.send(winQuotes[index])
+            time.sleep(3)
+            string = winQuotes[0] + " is what it would say if you got the correct roll"
+            await msg.edit(content = string)
+        else:
+            await ctx.channel.send(winQuotes[index])
+
+
 @client.command()
 async def temp(ctx,*args):  
     string = ' '.join(args)
