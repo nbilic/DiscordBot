@@ -192,7 +192,7 @@ async def help(ctx):
 
 @client.command()
 async def killingfloor2(ctx):
-    domePick = 250
+    domePick = 2
     winQuotes = [
         "IT'S KILLING FLOOR TIME!!!!",
         "You did your best, it was not enough",
