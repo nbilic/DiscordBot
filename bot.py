@@ -200,6 +200,7 @@ async def killingfloor2(ctx):
         "Nope",
         "Better luck next time",
         "Soon COPIUM",
+        "Yes but actually no",
         "8 ball says Ask Again Later",
         "Not today",
         "In football it's called nuttmeg but in tennis it is hot dog, also no kf2 today"
